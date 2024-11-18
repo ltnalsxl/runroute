@@ -1,0 +1,749 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>RunRoutes</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style> /* 배경 추가 */
+			html, body {
+                background: linear-gradient(to bottom, #001F54, #00509E);
+                color: #D0D0D0; /* 텍스트 기본 색상 */
+                font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+                margin: 0;
+                padding: 0;
+			}
+			.wrapper {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;                 
+                align-items: center;
+                min-height: 100vh; /* 화면 전체 높이 차지 */
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            header#header {
+        background: rgba(0, 0, 0, 0.85);
+        color: #4FC3F7; /* 부드러운 청록색 */
+        text-align: center;
+        padding: 1.5em 0;
+        border-bottom: 3px solid #29B6F6; /* 버튼과 연계된 청록색 */
+    }
+    /* Fixed Navigation Bar */
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Slightly transparent black */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    border-bottom: 2px solid #4FC3F7; /* Matches the brand blue */
+}
+
+.fixed-navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.fixed-navbar ul li {
+    margin: 0 15px;
+}
+
+.fixed-navbar ul li a {
+    color: #E0F7FA; /* Soft blue text */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.fixed-navbar ul li a:hover {
+    color: #4FC3F7; /* Vibrant blue on hover */
+    text-decoration: underline;
+}
+
+/* Ensure content does not overlap the navbar */
+body {
+    padding-top: 60px; /* Adjust this to match the navbar height */
+}
+
+
+    h1, h2, p {
+        color: #E0F7FA; /* 더 부드러운 밝은 파란색 */
+    }
+    input, textarea, button {
+                background: #0A0A0A; /* Dark field background */
+                color: #E0E0E0; /* Light text */
+                border: 1px solid #444; /* Field border */
+                padding: 10px;
+                border-radius: 5px;
+                width: 90%;
+                max-width: 400px;
+                margin: 5px auto; /* Minimal margin */
+                display: block;
+            }
+            /* Input field */
+            /* Paragraph spacing */
+            /* Paragraphs (Text Above Input and Textarea) */
+            p {
+                margin: 25px 0; /* Slightly increased vertical spacing */
+                text-align: center;
+                color: #E0F7FA;
+            }
+
+            /* Email Input Field */
+/* Email Input Field */
+/* Email Input Field */
+input#submit-email {
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    background: #0A0A0A; /* Dark background */
+    color: #E0E0E0; /* Default text color */
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    caret-color: #4FC3F7; /* Matches the icon's blue */
+}
+
+input#submit-email:focus {
+    border-color: #4FC3F7; /* Matches the icon's blue */
+    outline: none; /* Remove default outline */
+    color: #4FC3F7; /* Text turns blue */
+}
+
+/* Textarea */
+textarea#submit-advice {
+    margin-bottom: 20px; /* Add more space below the textarea */
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    background: #0A0A0A; /* Dark background */
+    color: #E0E0E0; /* Default text color */
+    font-size: 1rem;
+    box-sizing: border-box;
+    resize: none;
+    transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    caret-color: #4FC3F7; /* Matches the icon's blue */
+}
+
+textarea#submit-advice:focus {
+    border-color: #4FC3F7; /* Matches the icon's blue */
+    outline: none; /* Remove default outline */
+    color: #4FC3F7; /* Text turns blue */
+}
+
+
+
+
+            /* Button */
+            button#submit {
+                height: 50px; /* Set a fixed height */
+                line-height: 50px; /* Match line-height to height */
+                padding: 0; /* Remove padding to avoid shifting */
+                text-align: center; /* Center the text horizontally */
+                background-color: #0288D1;
+                color: #FFFFFF;
+                border: none;
+                border-radius: 25px;
+                font-size: 1.1rem;
+                font-weight: bold;
+                cursor: pointer;
+                width: 90%;
+                max-width: 400px;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+
+
+            /* Button Hover Effect */
+            button#submit:hover {
+                background-color: #0277BD; /* Slightly darker on hover */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+
+
+        
+            
+            #map-container {
+                width: 100%;
+                height: 400px;
+                border-radius: 10px;
+                margin: 20px auto;
+            
+            /* 반응형 디자인 */
+            @media (max-width: 768px) {
+                header#header {
+                    font-size: 1.2em;
+                }
+                button {
+                    font-size: 1em;
+                    padding: 10px 20px;
+                }
+            }
+		</style>
+	</head>
+    <body class="is-preload">
+        <nav class="fixed-navbar">
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#vision">Our Vision</a></li>
+                <li><a href="#map-section">Map</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-map"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>RunRoutes</h1>
+								<p>Discover your perfect running path. Tailored to your distance, location, and preferences.<br />
+									Real-time guidance, route saving, and sharing to elevate your running experience.</p>
+								<center>
+                                    <p id="email-text">이메일을 남겨주시면 서비스 런칭 시 알림을 보내드립니다.</p>
+                                    <input id="submit-email" type="email" placeholder="알림을 받으실 이메일을 입력하세요" />
+                                    <p id="feedback-text">서비스에 대한 의견이나 조언을 작성해주세요.</p>
+                                    <textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="서비스 개선에 대한 아이디어를 남겨주세요"></textarea>
+                                    <button style="width:350px;" id="submit">지금 제출!</button>
+                                </center>
+
+								</div>
+
+						</div>
+						
+
+						<nav>
+							<ul>
+                                <li><a href="#intro">Introduction</a></li>
+                                <li><a href="#features">Features</a></li>
+                                <li><a href="#vision">Our Vision</a></li>
+                                <li><a href="#map-section">Map</a></li>
+                                <li><a href="#contact">Contact Us</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					
+                    <div id="main">
+                        <!-- Intro -->
+                        <article id="intro">
+                            <h2 class="major">Intro</h2>
+                            <p>우리의 러닝 코스 추천 서비스는 사용자가 원하는 거리와 환경을 기반으로<br />
+                                최적의 러닝 경로를 제공하며, 실시간 경로 안내 및 사용자 맞춤형 기록 기능을 지원합니다.</p>
+                        </article>
+
+						 <!-- Features -->
+                         <article id="features">
+                            <h2 class="major">Features</h2>
+                            <ul>
+                                <li>Personalized route recommendations based on your preferences and location</li>
+                                <li>Real-time navigation with visualized paths</li>
+                                <li>Route saving and sharing features for community building</li>
+                            </ul>
+                        </article>
+        
+                        <!-- Map Section -->
+                        <article id="map-section">
+                            <h2 class="major">Map</h2>
+                            <div id="map-container"></div>
+                            <p style="text-align: center;">Recommended Route: 5km in Riverside Park</p>
+                        </article>
+        
+                        <!-- Contact -->
+                        <article id="contact">
+                            <h2 class="major">Contact Us</h2>
+                            <form method="post" action="#">
+                                <div class="fields">
+                                    <div class="field half">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" placeholder="Your Name" />
+                                    </div>
+                                    <div class="field half">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" placeholder="Your Email" />
+                                    </div>
+                                    <div class="field">
+                                        <label for="message">Message</label>
+                                        <textarea name="message" id="message" rows="4" placeholder="Your Message"></textarea>
+                                    </div>
+                                </div>
+                                <ul class="actions">
+                                    <li><input type="submit" value="Send" class="primary" /></li>
+                                    <li><input type="reset" value="Reset" /></li>
+                                </ul>
+                            </form>
+                        </article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_NAVER_MAP_CLIENT_ID"></script>
+        <script>
+            const mapOptions = {
+                center: new naver.maps.LatLng(37.5665, 126.9780),
+                zoom: 10,
+            };
+            const map = new naver.maps.Map('map-container', mapOptions);
+
+            const polylinePath = [
+                new naver.maps.LatLng(37.5665, 126.9780),
+                new naver.maps.LatLng(37.5700, 126.9900),
+            ];
+
+            const polyline = new naver.maps.Polyline({
+                map: map,
+                path: polylinePath,
+                strokeWeight: 5,
+                strokeColor: '#00CCFF',
+                strokeOpacity: 0.8,
+            });
+
+            // 다국어 지원
+            const translations = {
+                en: {
+                    title: "Welcome to RunRoutes",
+                    description: "Find your perfect running route.",
+                },
+                ko: {
+                    title: "런루트에 오신 것을 환영합니다",
+                    description: "당신에게 딱 맞는 러닝 경로를 찾아보세요.",
+                },
+            };
+
+            function switchLanguage(lang) {
+                document.getElementById("title").innerText = translations[lang].title;
+                document.getElementById("description").innerText = translations[lang].description;
+            }
+        </script>
+			<script type="application/javascript">
+				var ip = "null";
+				function getIP(json) {
+					console.log(json);
+					try {
+						ip = json.ip;
+					} catch (e) {
+						ip = 'unknown';
+					}
+					return;
+				}
+				</script>
+
+			<script type="application/javascript" src="https://jsonip.com?format=jsonp&callback=getIP"></script>
+			<script>
+				// 쿠키에서 값을 가져오는 함수
+				function getCookieValue(name) {
+					const value = "; " + document.cookie;
+					const parts = value.split("; " + name + "=");
+							if (parts.length === 2) {
+								return parts.pop().split(";").shift();
+							}
+						}
+
+				// 쿠키에 값을 저장하는 함수
+								function setCookieValue(name, value, days) {
+									let expires = "";
+									if (days) {
+										const date = new Date();
+										date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+										expires = "; expires=" + date.toUTCString();
+									}
+									document.cookie = name + "=" + (value || "") + expires + "; path=/";
+								}
+								function getUVfromCookie() {
+					// 6자리 임의의 문자열 생성
+					const hash = Math.random().toString(36).substring(2, 8).toUpperCase();
+					// 쿠키에서 기존 해시 값을 가져옴
+					const existingHash = getCookieValue("user");
+					// 기존 해시 값이 없으면, 새로운 해시 값을 쿠키에 저장
+					if (!existingHash) {
+						setCookieValue("user", hash, 180); // 쿠키 만료일은 6개월 
+						return hash;
+					} else {
+						// 기존 해시 값이 있으면, 기존 값을 반환
+						return existingHash;
+					}
+				}
+				// Sam pading value to start with 0. eg: 01, 02, .. 09, 10, ..
+				function padValue(value) {
+					return (value < 10) ? "0" + value : value;
+				}
+
+				function getTimeStamp() {
+					const date = new Date();
+
+					const year = date.getFullYear();
+					const month = date.getMonth() + 1;
+					const day = date.getDate();
+					const hours = date.getHours();
+					const minutes = date.getMinutes();
+					const seconds = date.getSeconds();
+
+					const formattedDate = `${padValue(year)}-${padValue(month)}-${padValue(day)} ${padValue(hours)}:${padValue(minutes)}:${padValue(seconds)}`;
+
+					return formattedDate;
+				}
+			
+
+
+		</script>
+		<script> 
+
+				var queryString = location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const utm = urlParams.get("utm")
+
+		</script>
+			<!-- 방문자 자동 기록 -->
+<script>
+    // 방문자 자동 기록 기능
+    $(document).ready(function () {
+        const visitorData = JSON.stringify({
+            id: getUVfromCookie(),
+            landingUrl: window.location.href,
+            ip: ip,
+            referer: document.referrer || "direct",
+            time_stamp: getTimeStamp(),
+            utm: new URLSearchParams(window.location.search).get("utm") || "unknown",
+            device: navigator.userAgent || "unknown",
+        });
+
+        axios
+            .get(`https://script.google.com/macros/s/AKfycbzVWzmV0KGjru18VK1LpyTyUq2698NGvtqbOCjQz3mQprdm9qow5a3K4m3dcFO-SWC5MA/exec?action=insert&table=visitor&data=${visitorData}`)
+            .then((response) => {
+                console.log("방문자 자동 기록 성공:", response.data);
+            })
+            .catch((error) => {
+                console.error("방문자 자동 기록 실패:", error);
+            });
+    });
+</script>
+
+<!-- 이메일 남기기 -->
+<script>
+    // 이메일 제출 기능
+    $("#submit").on("click", function () {
+        const email = $("#submit-email").val();
+        const advice = $("#submit-advice").val();
+
+        function validateEmail(email) {
+            const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            return re.test(email);
+        }
+
+        if (!email || !validateEmail(email)) {
+            alert("유효하지 않은 이메일입니다.");
+            return;
+        }
+
+        const finalData = JSON.stringify({
+            id: getUVfromCookie(),
+            email: email,
+            advice: advice,
+        });
+
+        axios
+            .get(`https://script.google.com/macros/s/AKfycbzVWzmV0KGjru18VK1LpyTyUq2698NGvtqbOCjQz3mQprdm9qow5a3K4m3dcFO-SWC5MA/exec?action=insert&table=registration&data=${finalData}`)
+            .then((response) => {
+                console.log("이메일 제출 성공:", response.data);
+                alert("제출되었습니다!");
+                $("#submit-email").val("");
+                $("#submit-advice").val("");
+            })
+            .catch((error) => {
+                console.error("이메일 제출 실패:", error);
+                alert("제출 중 오류가 발생했습니다.");
+            });
+    });
+</script>
+
+
+	</body>
+</html>
+
