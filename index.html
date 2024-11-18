@@ -179,6 +179,7 @@ textarea#submit-advice:focus {
                 background-color: #0277BD; /* Slightly darker on hover */
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             }
+            
 
 
         
@@ -190,15 +191,19 @@ textarea#submit-advice:focus {
                 margin: 20px auto;
             
             /* 반응형 디자인 */
-            @media (max-width: 768px) {
-                header#header {
-                    font-size: 1.2em;
-                }
-                button {
-                    font-size: 1em;
-                    padding: 10px 20px;
-                }
-            }
+            @media (max-width: 480px) {
+    .fixed-navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    header#header h1 {
+        font-size: 1.5em;
+    }
+    button {
+        width: 80%;
+        font-size: 1rem;
+    }
+}
 		</style>
 	</head>
     <body class="is-preload">
@@ -219,12 +224,19 @@ textarea#submit-advice:focus {
 					<header id="header">
 						<div class="logo">
 							<span class="icon fa-map"></span>
+                       
+
 						</div>
 						<div class="content">
 							<div class="inner">
 								<h1>RunRoutes</h1>
-								<p>Discover your perfect running path. Tailored to your distance, location, and preferences.<br />
-									Real-time guidance, route saving, and sharing to elevate your running experience.</p>
+								<p>
+                                    **이제, 나만의 러닝 코스를 쉽게 찾아보세요!**<br />
+                                    **No more running the same old path** – discover the perfect route tailored to your **distance, location, and preferences**.<br />
+                                    **실시간 경로 안내**, **코스 저장 및 공유** 기능으로 **새로운 러닝 경험**을 시작하세요!<br />
+                                    **Discover your perfect running route today** and **elevate your running journey like never before!**
+                                </p>
+                                <!-- 언어 선택 버튼 추가 -->
 								<center>
                                     <p id="email-text">이메일을 남겨주시면 서비스 런칭 시 알림을 보내드립니다.</p>
                                     <input id="submit-email" type="email" placeholder="알림을 받으실 이메일을 입력하세요" />
@@ -254,20 +266,50 @@ textarea#submit-advice:focus {
                     <div id="main">
                         <!-- Intro -->
                         <article id="intro">
-                            <h2 class="major">Intro</h2>
-                            <p>우리의 러닝 코스 추천 서비스는 사용자가 원하는 거리와 환경을 기반으로<br />
-                                최적의 러닝 경로를 제공하며, 실시간 경로 안내 및 사용자 맞춤형 기록 기능을 지원합니다.</p>
+                            <h2 class="major">이제, 최적의 러닝 코스를 쉽게 찾으세요!</h2>
+                            <div class="feature-icons">
+                                <div class="icon-item">
+                                    <span class="icon fa-map"></span>
+                                    <p>위치 기반 추천: 내 위치에 맞는 최적의 러닝 경로를 추천해 드립니다.</p>
+                                </div>
+                                <div class="icon-item">
+                                    <span class="icon fa-running"></span>
+                                    <p>실시간 경로 안내: 실시간 내비게이션으로 경로를 따라 쉽게 달릴 수 있습니다.</p>
+                                </div>
+                                <div class="icon-item">
+                                    <span class="icon fa-share-alt"></span>
+                                    <p>코스 저장 및 공유: 나만의 러닝 코스를 저장하고 공유할 수 있습니다.</p>
+                                </div>
+                            </div>
                         </article>
 
 						 <!-- Features -->
                          <article id="features">
                             <h2 class="major">Features</h2>
-                            <ul>
-                                <li>Personalized route recommendations based on your preferences and location</li>
-                                <li>Real-time navigation with visualized paths</li>
-                                <li>Route saving and sharing features for community building</li>
-                            </ul>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <span class="icon fa-map"></span>
+                                    <h3>맞춤형 경로 추천</h3>
+                                    <p>사용자의 취향과 위치에 맞춘 최적의 경로를 제공하여 새로운 러닝 경험을 선사합니다.</p>
+                                    <button onclick="startRecommendation()">경로 추천 받기</button>
+                                </div>
+                        
+                                <div class="feature-item">
+                                    <span class="icon fa-running"></span>
+                                    <h3>실시간 경로 안내</h3>
+                                    <p>시각화된 경로로 실시간 내비게이션을 제공하여 사용자가 쉽게 따라갈 수 있도록 돕습니다.</p>
+                                    <button onclick="startNavigation()">내비게이션 시작</button>
+                                </div>
+                        
+                                <div class="feature-item">
+                                    <span class="icon fa-share-alt"></span>
+                                    <h3>코스 저장 및 공유</h3>
+                                    <p>자신만의 코스를 저장하고 다른 사용자와 공유할 수 있는 기능으로 커뮤니티와 연결됩니다.</p>
+                                    <button onclick="startSharing()">코스 공유하기</button>
+                                </div>
+                            </div>
                         </article>
+                        
         
                         <!-- Map Section -->
                         <article id="map-section">
@@ -566,6 +608,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_NAVER_MAP_CLIENT_ID"></script>
         <script>
+            
             const mapOptions = {
                 center: new naver.maps.LatLng(37.5665, 126.9780),
                 zoom: 10,
@@ -745,5 +788,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 
 	</body>
-</html>
 
+</html>
