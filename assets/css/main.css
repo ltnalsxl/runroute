@@ -209,6 +209,7 @@ input, select, textarea {
 	h2 {
 		font-size: 2.2rem;
 		letter-spacing: normal;
+		line-height: 1;
 	}
 
 	h3 {
@@ -1685,11 +1686,9 @@ input, select, textarea {
 /* 전체 섹션 스타일 */
 #features-section {
     display: flex;
-	flex-wrap: wrap; /* 화면 크기에 따라 줄바꿈 허용 */
+    flex-wrap: wrap; /* 줄바꿈 허용 */
     justify-content: center;
-    align-items: flex-start;
-    padding: 50px 20px;
-    gap: 20px;
+    gap: 20px; /* 박스 간 간격 */
 }
 
 /* 각 박스 스타일 */
@@ -1698,10 +1697,12 @@ input, select, textarea {
     color: #E0F7FA;
     border-radius: 15px;
     padding: 20px;
+	margin-bottom: 20px;
+
     text-align: center;
-    width: 300px;
+	width: calc(30% - 20px); /* PC: 한 줄에 3개 */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-box:hover {
@@ -1709,11 +1710,24 @@ input, select, textarea {
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
 }
 
+@media screen and (max-width: 1200px) { /* 태블릿 화면 */
+    .feature-box {
+        width: calc(45% - 20px); /* 한 줄에 2개 */
+    }
+}
+
+@media screen and (max-width: 768px) { /* 모바일 화면 */
+    .feature-box {
+        width: calc(45% - 20px); /* 한 줄에 2개 */
+        padding: 15px; /* 여백 줄임 */
+    }
+}
+
 /* 아이콘 스타일 */
 .feature-box .icon {
     font-size: 3rem;
     color: #4FC3F7;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* 제목 스타일 */
@@ -1724,7 +1738,7 @@ input, select, textarea {
 
 /* 텍스트 스타일 */
 .feature-box p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
 }
 /* Footer Style */
@@ -1761,3 +1775,4 @@ input, select, textarea {
     font-weight: bold; /* 텍스트 굵기 */
     display: inline-block; /* 텍스트 주변에만 배경색 */
 }
+
