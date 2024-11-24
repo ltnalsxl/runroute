@@ -34,10 +34,14 @@
 
             }
 			.content {
-                width: 100%;
             margin: 0 auto; /* 중앙 정렬 */
             box-sizing: border-box; /* 패딩 포함 크기 계산 */
             flex: 1; /* 남은 공간을 차지하도록 설정 */
+            max-height: none; /* 최대 높이 제한 해제 */
+            height: auto; /* 높이를 자동 조정 */
+            overflow: visible; /* 내용이 넘쳐도 보이도록 */
+            min-height: 1000px; /* 필요에 따라 최소 높이 설정 */
+
             }
 
             /* Inner 스타일 (자식) */
@@ -48,6 +52,11 @@
                 border-radius: 5px; /* 모서리를 둥글게 */
                 box-sizing: border-box;
                 text-align: center; /* 텍스트 가운데 정렬 */
+                max-height: none; /* 최대 높이 제한 해제 */
+                height: auto; /* 높이를 자동 조정 */
+                min-height: 1000px; /* 필요에 따라 최소 높이 설정 */
+                height: auto;
+                overflow: visible; /* 내용이 넘쳐도 보이도록 */
             }
 			.inner p:nth-of-type(1),
 .inner p:nth-of-type(2) {
@@ -55,15 +64,22 @@
 }
 
             header#header {
+                height: auto; /* 원하는 높이로 설정 */
                 background: rgba(0, 0, 0, 0.85);
                 overflow: visible; /* 잘림 방지 */
                 position: relative; /* 부모 컨텍스트에 따라 위치 지정 */
-                height: auto; /* 높이 자동 조정 */
-
                 color: #4FC3F7; /* 부드러운 청록색 */
                 text-align: center;
                 padding: 1.5em 0;
                 border-bottom: 3px solid #29B6F6; /* 버튼과 연계된 청록색 */
+    }
+    #wrapper {
+        display: flex; /* 자식 요소를 정렬하기 위한 flex 사용 */
+        flex-direction: column; /* 자식 요소를 세로로 정렬 */
+        align-items: stretch; /* 자식 요소가 부모 너비에 맞게 늘어나도록 */
+        justify-content: flex-start; /* 위쪽 정렬 */
+        min-height: 100vh; /* 화면 높이 채우기 */
+    
     }
 
 /* Fixed Navigation Bar */
@@ -376,17 +392,18 @@ button#submit:hover {
 </section>
 <!-- 주요 기능 섹션 끝 -->
 
-                <!-- 이메일 및 피드백 섹션 -->
-                <div id="feedback-section">
-                    <center>
-                        <p id="email-text">서비스 런칭 소식을 가장 먼저 받아보고 싶으신가요? 이메일을 남겨주시면 서비스 런칭 시 알림을 보내드립니다.</p>
-                        <input id="submit-email" type="email" placeholder="알림을 받으실 이메일 주소를 입력해 주세요" />
-                        <p id="feedback-text">서비스에 대한 의견이나 제안이 있다면 언제든 알려주세요.</p>
-                        <textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="서비스 개선에 대한 아이디어를 남겨주세요"></textarea>
-                        <button id="submit">같이 달려요!</button>
-                    </center>
-						</div>
-						
+<!-- 이메일 및 피드백 섹션 -->
+<!-- 이메일 및 피드백 섹션 -->
+    <div class="content">
+        <center>
+            <p id="email-text">서비스 런칭 소식을 가장 먼저 받아보고 싶으신가요? 이메일을 남겨주시면 서비스 런칭 시 알림을 보내드립니다.</p>
+            <input id="submit-email" type="email" placeholder="알림을 받으실 이메일 주소를 입력해 주세요" />
+            <p id="feedback-text">서비스에 대한 의견이나 제안이 있다면 언제든 알려주세요.</p>
+            <textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="서비스 개선에 대한 아이디어를 남겨주세요"></textarea>
+            <button id="submit">같이 달려요!</button>
+        </center>
+    </div>
+
 
 					</header>
 
@@ -501,6 +518,8 @@ button#submit:hover {
 			<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_NAVER_MAP_CLIENT_ID"></script>
+
+            
             <script>
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
