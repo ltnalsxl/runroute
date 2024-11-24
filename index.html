@@ -196,6 +196,32 @@ body.scrolled .fixed-navbar {
         }
     }
 
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+        .fixed-navbar ul {
+            display: none; /* 기본적으로 숨김 */
+            flex-direction: column; /* 세로 정렬 */
+            width: 100%;
+            background: rgba(34, 34, 34, 0.95);
+            position: absolute;
+            top: 60px; /* 네비게이션 바로부터 간격 */
+            left: 0;
+            padding: 10px 0;
+        }
+
+        .fixed-navbar ul.show {
+            display: flex; /* 햄버거 메뉴 활성화 시 보이게 설정 */
+        }
+
+        .fixed-navbar ul li {
+            margin-bottom: 10px;
+            text-align: center; /* 메뉴 항목 중앙 정렬 */
+        }
+
+        .navbar-toggle {
+            display: block; /* 모바일에서만 보임 */
+        }
+    }
 
 
 /* Ensure content does not overlap the navbar */
@@ -259,7 +285,7 @@ textarea#submit-advice {
     width: 100%;
     max-width: 400px;
     background: rgba(255, 255, 255, 0.181); /* 약간 투명한 흰색 */
-    color: #000; /* 일반 텍스트 색상 */
+    color: #4FC3F7; /* 일반 텍스트 색상 */
     font-size: 1rem;
     box-sizing: border-box;
     transition: border-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 효과 */
@@ -484,11 +510,13 @@ button#submit:hover {
     <div class="content">
         <center>
             <p id="email-text" style="font-size: 1.1rem; font-weight: 400; color: #E0F7FA; line-height: 1.5; text-align: center; font-family: 'Inter', sans-serif; letter-spacing: normal; ">
-                서비스 런칭 소식을 가장 빠르게 받아보고 싶으신가요? </br>
+                RunRoutes 런칭 소식을 가장 빠르게 받아보고 싶으신가요? </br>
                 지금 바로 이메일을 등록하고, 런칭 소식을 가장 먼저 확인해보세요! </p>
             <input id="submit-email" type="email" placeholder="알림을 받으실 이메일 주소를 입력해 주세요" />
             <p id="feedback-text" style="font-size: 1.1rem; font-weight: 400; color: #E0F7FA; line-height: 1.5; text-align: center; font-family: 'Inter', sans-serif; letter-spacing: normal; ">
-                서비스에 대한 의견이나 제안이 있다면 언제든 알려주세요.</p>
+                <span class="icon fa-comments"></span>  의견이나 제안이 있다면 언제든 알려주세요 
+
+            </p>
             <textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="서비스 개선에 대한 아이디어를 남겨주세요"></textarea>
             <button id="submit">알림 받기!</button>
         </center>
@@ -809,4 +837,4 @@ button#submit:hover {
 
 	</body>
 
-</html>
+</html>	
