@@ -1140,9 +1140,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 
@@ -1201,6 +1204,8 @@ input, select, textarea {
 		width: 100%;
 		padding: 4rem 2rem;
 		z-index: 3;
+		overflow-y: auto; /* 세로 스크롤 허용 */
+		overflow: visible;
 	}
 
 		#wrapper:before {
@@ -1257,6 +1262,7 @@ input, select, textarea {
 		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		max-width: 100%;
 		text-align: center;
+		overflow: visible;
 	}
 
 		#header > * {
@@ -1656,3 +1662,60 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+		#feedback-section {
+			margin-top: 40px; /* 주요 기능과 피드백 섹션 사이 간격 */
+			text-align: center;
+		}
+		
+		#feedback-section p {
+			font-size: 1rem;
+			margin-bottom: 10px;
+			color: #E0F7FA;
+		}
+		
+/* 전체 섹션 스타일 */
+#features-section {
+    display: flex;
+	flex-wrap: wrap; /* 화면 크기에 따라 줄바꿈 허용 */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    gap: 20px;
+}
+
+/* 각 박스 스타일 */
+.feature-box {
+    background: #1E1E1E;
+    color: #E0F7FA;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* 아이콘 스타일 */
+.feature-box .icon {
+    font-size: 3rem;
+    color: #4FC3F7;
+    margin-bottom: 15px;
+}
+
+/* 제목 스타일 */
+.feature-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* 텍스트 스타일 */
+.feature-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
