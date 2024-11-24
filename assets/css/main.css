@@ -1475,12 +1475,14 @@ input, select, textarea {
 
 			#header {
 				padding: 0.5rem; /* 작은 화면에서 더 작은 패딩 */
+				width:100%
 			}
 
 				#header .content .inner {
 					padding: 2.5rem 0;
 					max-height: none; /* 최대 높이를 제한하지 않음 */
 					overflow: visible; /* 내용이 넘쳐도 보이도록 */
+					width: 100%
 					
 				}
 
