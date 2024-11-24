@@ -1795,10 +1795,10 @@ input, select, textarea {
 @media screen and (max-width: 480px) { /* 모바일 화면 */
 		/* 모바일에서 h1, h2 크기 조정 */
 		h1 {
-			font-size: 1.5rem; /* h1 크기 조정 */
+			font-size: 1.1rem; /* h1 크기 조정 */
 		}
 		h2 {
-			font-size: 1.2rem; /* h2 크기 조정 */
+			font-size: 0.6rem; /* h2 크기 조정 */
 		}
 		
 		/* 헤더의 패딩과 여백 조정 */
