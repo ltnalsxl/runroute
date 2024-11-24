@@ -1718,9 +1718,15 @@ input, select, textarea {
 
 @media screen and (max-width: 768px) { /* 모바일 화면 */
     .feature-box {
-        width: calc(45% - 20px); /* 한 줄에 2개 */
+        width: calc(40% - 20px); /* 한 줄에 2개 */
         padding: 15px; /* 여백 줄임 */
     }
+}
+@media screen and (max-width: 7480px) { /* 모바일 화면 */
+		.feature-box {
+			width: calc(40% - 20px); /* 한 줄에 2개 */
+			padding: 10px; /* 여백 줄임 */
+		}
 }
 
 /* 아이콘 스타일 */
@@ -1777,12 +1783,39 @@ input, select, textarea {
 }
 
 .icon {
-    font-family: 'Font Awesome 5 Free'; /* 또는 Font Awesome 6, 사용하는 버전에 따라 */
+    all: unset;
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
+    display: inline-block;
 }
 
 @font-face {
     font-family: 'Font Awesome 5 Free';
     src: url('/path-to-font/fontawesome-webfont.woff2') format('woff2');
     font-display: swap;
+}
+
+@media screen and (max-width: 480px) { /* 모바일 화면 */
+    body {
+        font-size: 1rem;
+        margin: 10px; /* 기본 여백 설정 */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px; /* 제목 아래 여백 줄이기 */
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+		max-width: 90%;  /* 텍스트가 화면의 90%를 넘지 않도록 설정 */
+        margin: 0 auto;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
 }
