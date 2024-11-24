@@ -5,27 +5,32 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
+      
     <head>
         <title>RunRoutes</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style> /* 배경 추가 */
+      
 			html, body {
                 height: 100%; /* 페이지 전체를 차지하도록 설정 */
                 background: linear-gradient(to bottom, #001F54, #00509E);
                 color: #D0D0D0; /* 텍스트 기본 색상 */
-                font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+                font-family: 'Inter', sans-serif; /* 기본 폰트 */
                 margin: 0;
                 padding: 0;
                 overflow-x: hidden; /* 가로 스크롤 방지 */
+                font-weight: 500; /* 기본 글자 굵기 */
+                line-height: 1.6; /* 적당한 줄 간격 */
+            
 			}
 			.wrapper {
-                background: transparent;
+                background-color: #121212;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -75,6 +80,7 @@
                 text-align: center;
                 padding: 1.5em 0;
                 border-bottom: 3px solid #29B6F6; /* 버튼과 연계된 청록색 */
+                
     }
     #wrapper {
         display: flex; /* 자식 요소를 정렬하기 위한 flex 사용 */
@@ -84,6 +90,24 @@
         min-height: 100vh; /* 화면 높이 채우기 */
     
     }
+     /* 헤더 제목 */
+     header#header .header-title {
+        font-size: 3rem; /* 크고 굵은 제목 */
+        font-weight: 800; /* 더 굵게 */
+        color: #ffffff; /* 흰색 글자 */
+        margin-bottom: 16px;
+        line-height: 1.2;
+    }
+
+    /* 헤더 설명 */
+    header#header .header-description {
+        font-size: 1.1rem; /* 설명 글자 크기 */
+        font-weight: 400; /* 적당한 굵기 */
+        color: #dcdcdc; /* 약간 회색 톤 */
+        line-height: 1.6;
+        margin-bottom: 32px;
+    }
+    
 
 /* Fixed Navigation Bar */
 .fixed-navbar {
@@ -366,34 +390,35 @@ button#submit:hover {
         </div>
         <div class="content">
             <div class="inner">
-                <h1>RunRoutes</h1>
-                <p>
+                <h1 class="header-title">RunRoutes</h1>
+                <p class="header-description"> 
                     고민은 줄이고, 나만의 러닝 코스로 더 즐겁게! RunRoutes에서 시작하세요.<br />
                     No more running the same old route – find the perfect path for your perfect run for the day!<br /><br />
                 </p>
+          
  <!-- 주요 기능 섹션 -->
- <section id="key-features">
+<section id="key-features">
     <h2 class="section-title">RunRoutes의 주요 기능</h2>
     <div id="features-section">
         <div class="feature-box">
             <span class="icon fa fa-map-marker-alt"></span>
-
-            <h3>맞춤형 코스 추천</h3>
-            <p>현 위치, 거리, 난이도, 선호 환경에 맞는 최적의 러닝 코스 제안 받기</p>
+            <h3 class="feature-title">맞춤형 코스 추천</h3>
+            <p class="feature-description">현 위치, 거리, 난이도, 선호 환경에 맞는 최적의 러닝 코스 제안 받기</p>
         </div>
         <div class="feature-box">
             <span class="icon fa-route"></span>
-            <h3>실시간 경로 안내</h3>
-            <p>GPS 기반 실시간 안내로 새로운 장소에서도 길 잃을 걱정 없이 달리기</p>
+            <h3 class="feature-title">실시간 경로 안내</h3>
+            <p class="feature-description">GPS 기반 실시간 안내로 새로운 장소에서도 길 잃을 걱정 없이 달리기</p>
         </div>
         <div class="feature-box">
             <span class="icon fa-share-alt"></span>
-            <h3>코스 저장 및 공유</h3>
-            <p>자주 뛰는 나만의 러닝 코스를 저장하고 다른 러너와 공유하기</p>
+            <h3 class="feature-title">코스 저장 및 공유</h3>
+            <p class="feature-description">자주 뛰는 나만의 러닝 코스를 저장하고 다른 러너와 공유하기</p>
         </div>
     </div>
-    
 </section>
+
+
 <!-- 주요 기능 섹션 끝 -->
 
 <!-- 이메일 및 피드백 섹션 -->
