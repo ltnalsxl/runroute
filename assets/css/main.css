@@ -1712,13 +1712,6 @@ input, select, textarea {
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
 }
 
-}
-@media screen and (max-width: 480px) { /* 모바일 화면 */
-		.feature-box {
-			width: calc(100% - 20px); /* 한 줄에 2개 */
-			padding: 10px; /* 여백 줄임 */
-		}
-}
 
 /* 아이콘 스타일 */
 .feature-box .icon {
@@ -1884,6 +1877,7 @@ input, select, textarea {
 		#header .content {
 			padding: 1.5rem 0;  /* 내용 부분 패딩 조정 */
 		}
+		
 
 		
 	}
