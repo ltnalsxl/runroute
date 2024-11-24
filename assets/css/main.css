@@ -1210,17 +1210,17 @@ input, select, textarea {
 		flex-direction: column;
 		align-items: stretch; /* 자식 요소가 부모의 너비에 맞게 늘어납니다 */
 	
+	
 	}
 
 		#wrapper:before {
 			content: '';
-			display: block;
+			display: none;
 		}
 
 		@media screen and (max-width: 1680px) {
 
 			#wrapper {
-				padding: 3rem 2rem;
 				min-height: auto; /* 기본값: 100vh 제거 */
 				height: auto; /* 높이를 내용에 맞게 */
 			}
@@ -1230,7 +1230,6 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#wrapper {
-				padding: 2rem 1rem;
 				min-height: auto; /* 기본값: 100vh 제거 */
 				height: auto; /* 높이를 내용에 맞게 */
 			}
@@ -1240,7 +1239,6 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#wrapper {
-				padding: 1rem;
 				min-height: auto; /* 기본값: 100vh 제거 */
 				height: auto; /* 높이를 내용에 맞게 */
 			}
@@ -1274,7 +1272,6 @@ input, select, textarea {
 		overflow: visible;
 		min-height: 200px; /* 최소 높이 */
     padding: 20px; /* 내부 여백 */
-    box-sizing: border-box; /* 패딩 포함 높이 계산 */
 	height: auto;
     overflow: visible;
 	}
@@ -1468,9 +1465,8 @@ input, select, textarea {
 				}
 
 			#header .content .inner {
-				padding: 1rem 1rem;
-				max-height: none; /* 최대 높이를 제한하지 않음 */
-				overflow: visible; /* 내용이 넘쳐도 보이도록 */
+				max-height: none; /* 높이 제한 제거 */
+				overflow: visible; /* 내용 넘침 표시 */
 			}
 
 			#header .content p {
@@ -1683,7 +1679,6 @@ input, select, textarea {
 		}
 
 		#feedback-section {
-			margin-top: 40px; /* 주요 기능과 피드백 섹션 사이 간격 */
 			text-align: center;
 		}
 		
