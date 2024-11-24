@@ -18,6 +18,7 @@
                 font-family: 'Noto Sans KR', 'Roboto', sans-serif;
                 margin: 0;
                 padding: 0;
+                overflow-x: hidden; /* 가로 스크롤 방지 */
 			}
 			.wrapper {
                 background: rgba(255, 255, 255, 0.05);
@@ -26,10 +27,34 @@
                 flex-direction: column;
                 justify-content: flex-start;                 
                 align-items: center;
-                min-height: 100vh; /* 화면 전체 높이 차지 */
-                padding: 20px;
+                min-height: 150vh; /* 화면 크기를 최소 높이로 설정 */
+                padding: 5px;
                 box-sizing: border-box;
+				padding-bottom: 80px; /* 하단 여백 확대 */
+                overflow-y: auto; /* 내부 스크롤 활성화 */
             }
+			.content {
+                width: 100%;
+                max-width: 1500px; /* 부모 요소의 최대 너비 */
+                margin: 0 auto; /* 중앙 정렬 */
+                padding: 5px; /* 내부 여백 추가 */
+                box-sizing: border-box; /* 패딩 포함 크기 계산 */
+            }
+
+            /* Inner 스타일 (자식) */
+            .inner {
+                width: 100%;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.1); /* 연한 배경 */
+                border-radius: 5px; /* 모서리를 둥글게 */
+                box-sizing: border-box;
+                text-align: center; /* 텍스트 가운데 정렬 */
+            }
+			.inner p:nth-of-type(1),
+.inner p:nth-of-type(2) {
+    margin-bottom: 0; /* 첫 번째와 두 번째 <p> 태그 사이의 간격 제거 */
+}
+
             header#header {
         background: rgba(0, 0, 0, 0.85);
         color: #4FC3F7; /* 부드러운 청록색 */
@@ -130,19 +155,22 @@ input#submit-email:focus {
 
 /* Textarea */
 textarea#submit-advice {
-    margin-bottom: 20px; /* Add more space below the textarea */
+    min-height: 100px; /* 최소 높이 */
+    max-height: 300px; /* 최대 높이 */
+    overflow-y: auto;  /* 스크롤 활성화 */
+    margin-bottom: 20px; /* 하단 여백 */
     padding: 12px;
     border: 1px solid #444;
     border-radius: 5px;
     width: 100%;
     max-width: 400px;
-    background: #0A0A0A; /* Dark background */
-    color: #E0E0E0; /* Default text color */
+    background: #0A0A0A; /* 어두운 배경 */
+    color: #E0E0E0; /* 기본 텍스트 색상 */
     font-size: 1rem;
     box-sizing: border-box;
     resize: none;
-    transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-    caret-color: #4FC3F7; /* Matches the icon's blue */
+    transition: border-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 */
+    caret-color: #4FC3F7; /* 파란색 커서 */
 }
 
 textarea#submit-advice:focus {
@@ -151,12 +179,9 @@ textarea#submit-advice:focus {
     color: #4FC3F7; /* Text turns blue */
 }
 
-
-
-
-            /* 버튼 스타일 */
 button#submit {
     margin-top: 15px; /* 텍스트박스 아래 여백 */
+    margin-bottom: 30px; /* 버튼 뒤에 여백 추가 */
     height: 50px;
     line-height: 50px;
     padding: 0;
@@ -172,7 +197,14 @@ button#submit {
     max-width: 400px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: block;
+    position: relative; /* 부모 요소의 position과 일치시킴 */
+    left: 0; /* 불필요한 left 위치 제거 */
+    transform: none; /* 중앙 정렬을 위해 transform 제거 */
+    z-index: 999;
 }
+
+
 
 /* 버튼 호버 효과 */
 button#submit:hover {
@@ -180,11 +212,6 @@ button#submit:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-            
-
-
-        
-            
             #map-container {
                 width: 100%;
                 height: 400px;
@@ -203,6 +230,17 @@ button#submit:hover {
     button {
         width: 80%;
         font-size: 1rem;
+    }
+}
+
+@media (max-height: 600px) {
+    #wrapper {
+        padding-bottom: 80px; /* 작은 화면에서도 여유 공간 확보 */
+    }
+
+    button#submit {
+        position: relative; /* 절대 위치로 인해 잘리지 않도록 상대 위치로 설정 */
+        margin-bottom: 20px; /* 하단 여백 추가 */
     }
 }
 		</style>
@@ -233,7 +271,7 @@ button#submit:hover {
 								<h1>RunRoutes</h1>
 								<p>
                                     어디서 달릴지 고민하지 마세요! 이제 RunRoute와 함께 나만의 러닝 코스를 쉽게 찾아보세요.<br />
-                                    No more running the same old path – discover the perfect route tailored to your distance, location, and preferences.<br /><br />
+                                    No more running the same old path – discover the perfect route tailored to your distance, location, and preferences.<br />
                                 </p>
                                 <p>
                                     실시간 경로 안내, 코스 저장 및 공유 기능으로 새로운 러닝 경험을 시작하세요<br />
@@ -273,7 +311,7 @@ button#submit:hover {
                             <div class="feature-icons">
                                 <div class="icon-item">
                                     <span class="icon fa-map"></span>
-                                    <p>위치 기반 추천: 내 위치에 맞는 최적의 러닝 경로를 추천해 드립니다.</p>
+                                    <p>위치 기반 추천: 내 위치에 맞는 최의 러닝 경로를 추천해 드립니다.</p>
                                 </div>
                                 <div class="icon-item">
                                     <span class="icon fa-running"></span>
@@ -293,7 +331,7 @@ button#submit:hover {
                                 <div class="feature-item">
                                     <span class="icon fa-map"></span>
                                     <h3>맞춤형 경로 추천</h3>
-                                    <p>사용자의 취향과 위치에 맞춘 최적의 경로를 제공하여 새로운 러닝 경험을 선사합니다.</p>
+                                    <p>사용자의 취향과 위치에 맞춘 최적의 경로를 제공하여 새로운 러닝 경험을 선사합니.</p>
                                     <button onclick="startRecommendation()">경로 추천 받기</button>
                                 </div>
                         
@@ -792,4 +830,4 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 	</body>
 
-</html>
+</html>	
