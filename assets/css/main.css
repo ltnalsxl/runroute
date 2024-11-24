@@ -83,7 +83,7 @@ input, select, textarea {
 	@media screen and (max-width: 480px) {
 
 		html, body {
-			min-width: 320px;
+			min-width: 100%; /*320 에서 100% 으로 바꿈*/
 		}
 
 	}
