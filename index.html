@@ -6,6 +6,9 @@
 -->
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <head>
         <title>RunRoutes</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -365,17 +368,18 @@ button#submit:hover {
             <div class="inner">
                 <h1>RunRoutes</h1>
                 <p>
-                    어디서 달릴지 고민하지 마세요! 이제 RunRoute와 함께 나만의 러닝 코스를 쉽게 찾아보세요.<br />
-                    No more running the same old path – discover the perfect route tailored to your distance, location, and preferences.<br /><br />
+                    고민은 줄이고, 나만의 러닝 코스로 더 즐겁게! RunRoutes에서 시작하세요.<br />
+                    No more running the same old route – find the perfect path for your perfect run for the day!<br /><br />
                 </p>
  <!-- 주요 기능 섹션 -->
  <section id="key-features">
     <h2 class="section-title">RunRoutes의 주요 기능</h2>
     <div id="features-section">
         <div class="feature-box">
-            <span class="icon fa-map"></span>
-            <h3>맞춤형 루트 추천</h3>
-            <p>위치와 러닝 거리를 입력하고, 나만을 위한 러닝 코스 추천 받기</p>
+            <span class="icon fa fa-map-marker-alt"></span>
+
+            <h3>맞춤형 코스 추천</h3>
+            <p>현 위치, 거리, 난이도, 선호 환경에 맞는 최적의 러닝 코스 제안 받기</p>
         </div>
         <div class="feature-box">
             <span class="icon fa-route"></span>
@@ -385,7 +389,7 @@ button#submit:hover {
         <div class="feature-box">
             <span class="icon fa-share-alt"></span>
             <h3>코스 저장 및 공유</h3>
-            <p>나만의 러닝 코스를 저장하고 커뮤니티와 공유하여 다양한 러닝 경험 쌓기</p>
+            <p>자주 뛰는 나만의 러닝 코스를 저장하고 다른 러너와 공유하기</p>
         </div>
     </div>
     
@@ -400,7 +404,7 @@ button#submit:hover {
             <input id="submit-email" type="email" placeholder="알림을 받으실 이메일 주소를 입력해 주세요" />
             <p id="feedback-text">서비스에 대한 의견이나 제안이 있다면 언제든 알려주세요.</p>
             <textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="서비스 개선에 대한 아이디어를 남겨주세요"></textarea>
-            <button id="submit">같이 달려요!</button>
+            <button id="submit">알림 받기!</button>
         </center>
     </div>
 
@@ -699,7 +703,7 @@ button#submit:hover {
             .get(`https://script.google.com/macros/s/AKfycbzVWzmV0KGjru18VK1LpyTyUq2698NGvtqbOCjQz3mQprdm9qow5a3K4m3dcFO-SWC5MA/exec?action=insert&table=registration&data=${finalData}`)
             .then((response) => {
                 console.log("이메일 제출 성공:", response.data);
-                alert("제출되었습니다!");
+                alert("서비스가 런칭되면 알려드릴게요. 같이 달려요! 🏃‍♂️🏃‍♀️");
                 $("#submit-email").val("");
                 $("#submit-advice").val("");
             })
@@ -709,7 +713,6 @@ button#submit:hover {
             });
     });
 </script>
-
 
 	</body>
 
