@@ -1863,6 +1863,9 @@ input, select, textarea {
         align-items: center;  /* 내용 세로 중앙 정렬 */
         text-align: center;  /* 텍스트 가운데 정렬 */
     }
+	#header .content {
+    padding: 0 20px; /* 양옆 패딩 추가 */
+}
 	#wrapper {
 		padding: 0; /* 여백을 없애기 위해 패딩을 0으로 설정 */
 		margin: 0;  /* 여백을 없애기 위해 마진도 0으로 설정 */
