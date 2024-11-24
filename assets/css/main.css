@@ -1780,3 +1780,9 @@ input, select, textarea {
     font-family: 'Font Awesome 5 Free'; /* 또는 Font Awesome 6, 사용하는 버전에 따라 */
     font-weight: 900;
 }
+
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    src: url('/path-to-font/fontawesome-webfont.woff2') format('woff2');
+    font-display: swap;
+}
