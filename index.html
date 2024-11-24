@@ -16,6 +16,7 @@
 
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style> /* 배경 추가 */
+        
       
 			html, body {
                 height: 100%; /* 페이지 전체를 차지하도록 설정 */
@@ -62,7 +63,7 @@
                 text-align: center; /* 텍스트 가운데 정렬 */
                 max-height: none; /* 최대 높이 제한 해제 */
                 height: auto; /* 높이를 자동 조정 */
-                min-height: 1200px; /* 필요에 따라 최소 높이 설정 . 절대 절대 안되던거 드디어 됐다 여기서 .. ㅠㅠㅠㅠㅠ 잘릴 때 여기 늘리기 !*/
+                min-height: 1500px; /* 필요에 따라 최소 높이 설정 . 절대 절대 안되던거 드디어 됐다 여기서 .. ㅠㅠㅠㅠㅠ 잘릴 때 여기 늘리기 !*/
                 height: auto;
                 overflow: visible; /* 내용이 넘쳐도 보이도록 */
             }
@@ -103,11 +104,10 @@
 
     /* 헤더 설명 */
     header#header .header-description {
-        font-size: 1.1rem; /* 설명 글자 크기 */
-        font-weight: 400; /* 적당한 굵기 */
+        font-size: 1.0rem; /* 설명 글자 크기 */
+        font-weight: 300; /* 적당한 굵기 */
         color: #dcdcdc; /* 약간 회색 톤 */
-        line-height: 1.6;
-        margin-bottom: 32px;
+        line-height: 1.5;
     }
     
 
@@ -208,8 +208,8 @@ body {
         color: #E0F7FA; /* 더 부드러운 밝은 파란색 */
     }
     input, textarea, button {
-                background: #0A0A0A; /* Dark field background */
-                color: #E0E0E0; /* Light text */
+                background: rgba(255, 255, 255, 0.8); /* Dark field background */
+                color: #000; /* Light text */
                 border: 1px solid #444; /* Field border */
                 padding: 10px;
                 border-radius: 5px;
@@ -229,45 +229,41 @@ body {
 
             /* Email Input Field */
 /* Email Input Field */
-/* Email Input Field */
-input#submit-email {
-    padding: 12px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 400px;
-    background: #0A0A0A; /* Dark background */
-    color: #E0E0E0; /* Default text color */
-    font-size: 1rem;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-    caret-color: #4FC3F7; /* Matches the icon's blue */
+
+
+        /* 이메일 및 피드백 섹션 텍스트 스타일 */
+#email-text,
+#feedback-text {
+            font-size: 1.5rem; /* 폰트 크기 */
+            font-weight: 400; /* 텍스트 두께 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+            line-height: 1.8; /* 줄 간격 */
+            color: #E0F7FA; /* 텍스트 색상 */
+            margin-bottom: 20px; /* 아래 여백 */
+        }
+
+/* Placeholder 스타일 수정 */
+input#submit-email::placeholder,
+textarea#submit-advice::placeholder {
+    color: rgba(0, 0, 0, 0.6); /* 연한 검정색 */
+    font-style: italic; /* 안내 문구에 기울임 효과 */
 }
 
-input#submit-email:focus {
-    border-color: #4FC3F7; /* Matches the icon's blue */
-    outline: none; /* Remove default outline */
-    color: #4FC3F7; /* Text turns blue */
-}
 
-/* Textarea */
+/* 입력 필드 스타일 */
+input#submit-email,
 textarea#submit-advice {
-    min-height: 100px; /* 최소 높이 */
-    max-height: 300px; /* 최대 높이 */
-    overflow-y: auto;  /* 스크롤 활성화 */
-    margin-bottom: 20px; /* 하단 여백 */
     padding: 12px;
     border: 1px solid #444;
     border-radius: 5px;
     width: 100%;
     max-width: 400px;
-    background: #0A0A0A; /* 어두운 배경 */
-    color: #E0E0E0; /* 기본 텍스트 색상 */
+    background: rgba(255, 255, 255, 0.181); /* 약간 투명한 흰색 */
+    color: #000; /* 일반 텍스트 색상 */
     font-size: 1rem;
     box-sizing: border-box;
-    resize: none;
-    transition: border-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 */
-    caret-color: #4FC3F7; /* 파란색 커서 */
+    transition: border-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 효과 */
+    caret-color: #056491; /* 커서 색상 */
 }
 
 textarea#submit-advice:focus {
@@ -410,7 +406,7 @@ button#submit:hover {
 	</head>
     <body class="is-preload">
         <nav class="fixed-navbar">
-            <a href="#" class="navbar-brand">RunRoutes</a>
+            <a href="#" class="navbar-brand"></a>
             <!-- 햄버거 버튼 -->
             <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
             <ul>
@@ -433,20 +429,21 @@ button#submit:hover {
         </div>
         <div class="content">
             <div class="inner">
-                <h1 class="header-title">RunRoutes</h1>
+                <h1 class="header-title">RUN <span class="icon fa-route"></span> ROUTES</h1>
+                <h3 class="section-title">오늘은 어디로 달리지? RunRoutes와 함께 최적의 러닝 코스를 만나보세요!</h3>
+
                 <p class="header-description">
                     나에게 딱 맞는 러닝 코스 추천부터 실시간 길 안내까지<br/>
                     달리고 공유할수록 쌓이는 특별한 리워드!<br/>
                     러닝이 더 즐거워지는 여정, 지금 RunRoutes와 함께 시작하세요.<br/><br/>
-                    Start your running journey with personalized routes.<br/>
                     Discover, share, and navigate the best running paths near you.<br/>
-                    Make every step count with RunRoutes!<br/><br/>
+                    <br/><br/>
                 </p>
-                
+
           
  <!-- 주요 기능 섹션 -->
 <section id="key-features">
-    <h2 class="section-title">RunRoutes의 주요 기능</h2>
+    <h2 class="section-title">주요 기능</h2>
     <div id="features-section">
         <div class="feature-box">
             <span class="icon fa fa-map-marker-alt"></span>
@@ -461,22 +458,22 @@ button#submit:hover {
         <div class="feature-box">
             <span class="icon fa fa-route"></span>
             <h3 class="feature-title">실시간 길 안내</h3>
-            <p class="feature-description">GPS 기반의 실시간 내비게이션으로 어디서든 자신 있게 달리세요.</p>
+            <p class="feature-description">GPS 기반 실시간 길 안내로 처음 가는 장소에서도 안심하고 달리세요.</p>
         </div>
         <div class="feature-box">
             <span class="icon fas fa-bookmark"></span>
             <h3 class="feature-title">나만의 코스 저장</h3>
-            <p class="feature-description">자주 뛰는 러닝 코스를 저장하고 나만의 러닝 기록을 관리하세요.</p>
+            <p class="feature-description">즐겨 찾는 러닝 코스를 저장하고 언제든지 다시 즐겨보세요.</p>
         </div>
         <div class="feature-box">
             <span class="icon fa fa-users"></span>
             <h3 class="feature-title">다양한 코스 공유</h3>
-            <p class="feature-description">러너들과 코스를 공유하며 함께 더 나은 러닝 경험을 만들어보세요.</p>
+            <p class="feature-description">나만의 코스를 공유하고 함께 달리며 다른 러너들과 즐거움을 나눠보세요.</p>
         </div>
         <div class="feature-box">
             <span class="icon fa fa-gift"></span>
             <h3 class="feature-title">포인트 리워드 시스템</h3>
-            <p class="feature-description">다양한 방법으로 포인트를 적립하고 프리미엄 코스와 특별 혜택을 즐기세요!</p>
+            <p class="feature-description">다양한 방법으로 포인트를 적립하고 프리미엄 코스와 특별 혜택을 즐기세요.</p>
         </div>
         
 </section>
@@ -487,7 +484,9 @@ button#submit:hover {
 <!-- 이메일 및 피드백 섹션 -->
     <div class="content">
         <center>
-            <p id="email-text">서비스 런칭 소식을 가장 먼저 받아보고 싶으신가요? 이메일을 남겨주시면 서비스 런칭 시 알림을 보내드립니다.</p>
+            <p id="email-text" style="font-size: 1.2rem; font-weight: 400; color: #E0F7FA; line-height: 1.5; text-align: center; font-family: 'Inter', sans-serif; letter-spacing: normal; ">
+                서비스 런칭 소식을 가장 빠르게 받아보고 싶으신가요? </br>
+                지금 바로 이메일을 등록하고, 런칭 소식을 가장 먼저 확인해보세요! </p>
             <input id="submit-email" type="email" placeholder="알림을 받으실 이메일 주소를 입력해 주세요" />
             <p id="feedback-text">서비스에 대한 의견이나 제안이 있다면 언제든 알려주세요.</p>
             <textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="서비스 개선에 대한 아이디어를 남겨주세요"></textarea>
