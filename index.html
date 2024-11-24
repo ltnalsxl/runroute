@@ -359,10 +359,12 @@ button#submit:hover {
 
 
     /* 각 Feature Box의 크기 */
-    .feature-box {
-        width: 90%; /* 모바일 화면에 맞게 박스 너비 조정 */
-        margin-bottom: 10px; /* 박스 간격 추가 */
-    }
+		.feature-box {
+			width: calc(40% - 20px); /* 한 줄에 2개 */
+			padding: 10px; /* 여백 줄임 */
+		}
+}
+
 
     /* 지도 컨테이너 높이 조정 */
     #map-container {
@@ -384,8 +386,8 @@ button#submit:hover {
 @media (max-height: 480px) {
     /* 화면이 좁은 경우 하단 여백 확보 */
     #wrapper {
-        padding-bottom: 80px; 
-    }
+            width:100%
+        }
 
     button#submit {
         position: relative;
