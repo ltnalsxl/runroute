@@ -1206,6 +1206,10 @@ input, select, textarea {
 		z-index: 3;
 		overflow-y: auto; /* 세로 스크롤 허용 */
 		overflow: visible;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch; /* 자식 요소가 부모의 너비에 맞게 늘어납니다 */
+	
 	}
 
 		#wrapper:before {
@@ -1217,6 +1221,8 @@ input, select, textarea {
 
 			#wrapper {
 				padding: 3rem 2rem;
+				min-height: auto; /* 기본값: 100vh 제거 */
+				height: auto; /* 높이를 내용에 맞게 */
 			}
 
 		}
@@ -1225,6 +1231,8 @@ input, select, textarea {
 
 			#wrapper {
 				padding: 2rem 1rem;
+				min-height: auto; /* 기본값: 100vh 제거 */
+				height: auto; /* 높이를 내용에 맞게 */
 			}
 
 		}
@@ -1233,6 +1241,8 @@ input, select, textarea {
 
 			#wrapper {
 				padding: 1rem;
+				min-height: auto; /* 기본값: 100vh 제거 */
+				height: auto; /* 높이를 내용에 맞게 */
 			}
 
 		}
@@ -1262,6 +1272,11 @@ input, select, textarea {
 		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		text-align: center;
 		overflow: visible;
+		min-height: 200px; /* 최소 높이 */
+    padding: 20px; /* 내부 여백 */
+    box-sizing: border-box; /* 패딩 포함 높이 계산 */
+	height: auto;
+    overflow: visible;
 	}
 
 		#header > * {
@@ -1453,7 +1468,9 @@ input, select, textarea {
 				}
 
 			#header .content .inner {
-				padding: 2.5rem 1rem;
+				padding: 1rem 1rem;
+				max-height: none; /* 최대 높이를 제한하지 않음 */
+				overflow: visible; /* 내용이 넘쳐도 보이도록 */
 			}
 
 			#header .content p {
@@ -1465,11 +1482,14 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#header {
-				padding: 1.5rem 0;
+				padding: 0.5rem; /* 작은 화면에서 더 작은 패딩 */
 			}
 
 				#header .content .inner {
 					padding: 2.5rem 0;
+					max-height: none; /* 최대 높이를 제한하지 않음 */
+					overflow: visible; /* 내용이 넘쳐도 보이도록 */
+					
 				}
 
 				#header nav ul {
@@ -1717,4 +1737,27 @@ input, select, textarea {
 .feature-box p {
     font-size: 1rem;
     line-height: 1.6;
+}
+/* Footer Style */
+#footer {
+    background: transparent
+    color: #E0E0E0; /* 텍스트 기본 색상 */
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444; /* 위쪽 경계선 */
+}
+
+#footer .footer-content p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+#footer .footer-content a {
+    color: #4FC3F7; /* 청록색 링크 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#footer .footer-content a:hover {
+    color: #29B6F6; /* 링크 호버 시 더 밝은 색상 */
 }
