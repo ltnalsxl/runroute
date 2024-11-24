@@ -1815,7 +1815,7 @@ input, select, textarea {
 		}
 		  /* #header 안의 다른 콘텐츠 영역도 적절히 크기 조정 */
 		  #header .content {
-			width: 100%;
+			width: 80%;
 			padding: 2rem 0;
 			text-align: center;
 		}
@@ -1864,8 +1864,10 @@ input, select, textarea {
         text-align: center;  /* 텍스트 가운데 정렬 */
     }
 	#header .content {
-    padding: 0 20px; /* 양옆 패딩 추가 */
-}
+			width: 80%;
+			padding: 2rem 0;
+			text-align: center;
+		}
 	#wrapper {
 		padding: 0; /* 여백을 없애기 위해 패딩을 0으로 설정 */
 		margin: 0;  /* 여백을 없애기 위해 마진도 0으로 설정 */
