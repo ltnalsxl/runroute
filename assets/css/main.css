@@ -1776,3 +1776,7 @@ input, select, textarea {
     display: inline-block; /* 텍스트 주변에만 배경색 */
 }
 
+.icon {
+    font-family: 'Font Awesome 5 Free'; /* 또는 Font Awesome 6, 사용하는 버전에 따라 */
+    font-weight: 900;
+}
