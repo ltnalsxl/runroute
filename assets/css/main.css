@@ -1832,14 +1832,13 @@ input, select, textarea {
 		}
 	
 		.feature-box {
-			width: calc(40% - 20px); /* 모바일에서는 한 줄에 하나씩 배치 */
-			padding: 10px; /* 여백 줄이기 */
+			width: calc(100% - 20px); /* 모바일에서는 한 줄에 하나씩 배치 */
+			padding: 5px; /* 여백 줄이기 */
 		}
 
 	
     body {
         font-size: 1rem;
-        margin: 10px; /* 기본 여백 설정 */
     }
 
     p {
@@ -1855,18 +1854,20 @@ input, select, textarea {
         font-size: 1rem;
     }
     #header {
-        width: 100%; /* 가로 전체를 채우도록 설정 */
-        padding: 1rem 2rem;  /* 패딩 줄이기 */
-        background-color: #000;  /* 배경색 검정 */
+        background-color: #000;  /* 검정색 배경 */
+        width: 100%;  /* 가로 100% */
+        height: auto;  /* 내용에 맞춰 높이 자동 조정 */
+        padding: 1rem;  /* 패딩 */
         display: flex;
-        flex-direction: column; /* 세로 정렬 */
-        justify-content: center; /* 콘텐츠 세로 가운데 정렬 */
-        align-items: center; /* 가로 가운데 정렬 */
-        height: auto; /* 내용에 맞게 높이 자동 조정 */
+        justify-content: center;  /* 내용 가로 중앙 정렬 */
+        align-items: center;  /* 내용 세로 중앙 정렬 */
+        text-align: center;  /* 텍스트 가운데 정렬 */
     }
 	#wrapper {
-		min-width: 90%; /* 기본값: 100vh 제거 */
-	}
+		padding: 0; /* 여백을 없애기 위해 패딩을 0으로 설정 */
+		margin: 0;  /* 여백을 없애기 위해 마진도 0으로 설정 */
+		width: 100%;  /* 가로 100% 설정 */	}
+	
 	
 		#header .logo {
 			width: 3.5rem;  /* 로고 크기 줄이기 */
@@ -1884,4 +1885,6 @@ input, select, textarea {
 		#header .content {
 			padding: 1.5rem 0;  /* 내용 부분 패딩 조정 */
 		}
+
+		
 	}
