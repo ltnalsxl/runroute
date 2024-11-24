@@ -62,7 +62,7 @@
                 text-align: center; /* 텍스트 가운데 정렬 */
                 max-height: none; /* 최대 높이 제한 해제 */
                 height: auto; /* 높이를 자동 조정 */
-                min-height: 1000px; /* 필요에 따라 최소 높이 설정 */
+                min-height: 1200px; /* 필요에 따라 최소 높이 설정 . 절대 절대 안되던거 드디어 됐다 여기서 .. ㅠㅠㅠㅠㅠ 잘릴 때 여기 늘리기 !*/
                 height: auto;
                 overflow: visible; /* 내용이 넘쳐도 보이도록 */
             }
@@ -88,6 +88,8 @@
         align-items: stretch; /* 자식 요소가 부모 너비에 맞게 늘어나도록 */
         justify-content: flex-start; /* 위쪽 정렬 */
         min-height: 100vh; /* 화면 높이 채우기 */
+        max-width: 100%; /* 전체 화면 너비 */
+        
     
     }
      /* 헤더 제목 */
@@ -120,7 +122,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 부드러운 그림자 효과 */
     padding: 15px 0; /* 위아래 여백 추가 */
     border-bottom: 2px solid #29B6F6; /* 청록색 하단 경계선 */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 스크롤 시 애니메이션 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease; /* 스크롤 시 애니메이션 */
     text-align: center; /* 텍스트를 중앙으로 정렬 */
 }
 
@@ -156,6 +158,43 @@ body.scrolled .fixed-navbar {
     background: #222; /* 불투명한 다크 배경 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 더 강한 그림자 */
 }
+
+/* 모바일 햄버거 메뉴 버튼 (PC에서는 숨김) */
+.navbar-toggle {
+        display: none; /* PC에서는 숨김 */
+        font-size: 1.5rem;
+        color: #FFFFFF;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* 모바일 반응형 */
+    @media (max-width: 768px) {
+        .fixed-navbar ul {
+            display: none; /* 기본적으로 숨김 */
+            flex-direction: column; /* 세로 정렬 */
+            width: 100%;
+            background: rgba(34, 34, 34, 0.95);
+            position: absolute;
+            top: 60px; /* 네비게이션 바로부터 간격 */
+            left: 0;
+            padding: 10px 0;
+        }
+
+        .fixed-navbar ul.show {
+            display: flex; /* 햄버거 메뉴 활성화 시 보이게 설정 */
+        }
+
+        .fixed-navbar ul li {
+            margin-bottom: 10px;
+            text-align: center; /* 메뉴 항목 중앙 정렬 */
+        }
+
+        .navbar-toggle {
+            display: block; /* 모바일에서만 보임 */
+        }
+    }
 
 
 
@@ -371,6 +410,9 @@ button#submit:hover {
 	</head>
     <body class="is-preload">
         <nav class="fixed-navbar">
+            <a href="#" class="navbar-brand">RunRoutes</a>
+            <!-- 햄버거 버튼 -->
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
             <ul>
                 <li><a href="#intro">Introduction</a></li>
                 <li><a href="#features">Features</a></li>
@@ -379,6 +421,7 @@ button#submit:hover {
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
+        
         
 <!-- Wrapper -->
 <div id="wrapper">
@@ -391,10 +434,15 @@ button#submit:hover {
         <div class="content">
             <div class="inner">
                 <h1 class="header-title">RunRoutes</h1>
-                <p class="header-description"> 
-                    고민은 줄이고, 나만의 러닝 코스로 더 즐겁게! RunRoutes에서 시작하세요.<br />
-                    No more running the same old route – find the perfect path for your perfect run for the day!<br /><br />
+                <p class="header-description">
+                    나에게 딱 맞는 러닝 코스 추천부터 실시간 길 안내까지<br/>
+                    달리고 공유할수록 쌓이는 특별한 리워드!<br/>
+                    러닝이 더 즐거워지는 여정, 지금 RunRoutes와 함께 시작하세요.<br/><br/>
+                    Start your running journey with personalized routes.<br/>
+                    Discover, share, and navigate the best running paths near you.<br/>
+                    Make every step count with RunRoutes!<br/><br/>
                 </p>
+                
           
  <!-- 주요 기능 섹션 -->
 <section id="key-features">
@@ -402,26 +450,40 @@ button#submit:hover {
     <div id="features-section">
         <div class="feature-box">
             <span class="icon fa fa-map-marker-alt"></span>
-            <h3 class="feature-title">맞춤형 코스 추천</h3>
-            <p class="feature-description">현 위치, 거리, 난이도, 선호 환경에 맞는 최적의 러닝 코스 제안 받기</p>
+            <h3 class="feature-title">스마트 거리 기반 추천</h3>
+            <p class="feature-description">새로운 곳에서도 걱정 없이! 위치 기반으로 최적의 러닝 코스를 추천받아요.</p>
         </div>
         <div class="feature-box">
-            <span class="icon fa-route"></span>
-            <h3 class="feature-title">실시간 경로 안내</h3>
-            <p class="feature-description">GPS 기반 실시간 안내로 새로운 장소에서도 길 잃을 걱정 없이 달리기</p>
+            <span class="icon fa fa-shoe-prints"></span>
+            <h3 class="feature-title">맞춤형 러닝 코스</h3>
+            <p class="feature-description">거리, 난이도, 환경까지 고려한 나만의 러닝 코스를 매일 새롭게 만나보세요.</p>
         </div>
         <div class="feature-box">
-            <span class="icon fa-share-alt"></span>
-            <h3 class="feature-title">코스 저장 및 공유</h3>
-            <p class="feature-description">자주 뛰는 나만의 러닝 코스를 저장하고 다른 러너와 공유하기</p>
+            <span class="icon fa fa-route"></span>
+            <h3 class="feature-title">실시간 길 안내</h3>
+            <p class="feature-description">GPS 기반의 실시간 내비게이션으로 어디서든 자신 있게 달리세요.</p>
         </div>
-    </div>
+        <div class="feature-box">
+            <span class="icon fas fa-bookmark"></span>
+            <h3 class="feature-title">나만의 코스 저장</h3>
+            <p class="feature-description">자주 뛰는 러닝 코스를 저장하고 나만의 러닝 기록을 관리하세요.</p>
+        </div>
+        <div class="feature-box">
+            <span class="icon fa fa-users"></span>
+            <h3 class="feature-title">다양한 코스 공유</h3>
+            <p class="feature-description">러너들과 코스를 공유하며 함께 더 나은 러닝 경험을 만들어보세요.</p>
+        </div>
+        <div class="feature-box">
+            <span class="icon fa fa-gift"></span>
+            <h3 class="feature-title">포인트 리워드 시스템</h3>
+            <p class="feature-description">다양한 방법으로 포인트를 적립하고 프리미엄 코스와 특별 혜택을 즐기세요!</p>
+        </div>
+        
 </section>
 
 
 <!-- 주요 기능 섹션 끝 -->
 
-<!-- 이메일 및 피드백 섹션 -->
 <!-- 이메일 및 피드백 섹션 -->
     <div class="content">
         <center>
@@ -737,6 +799,13 @@ button#submit:hover {
                 alert("제출 중 오류가 발생했습니다.");
             });
     });
+</script>
+
+<script>
+    function toggleNavbar() {
+        const navbarMenu = document.querySelector('.fixed-navbar ul');
+        navbarMenu.classList.toggle('show');
+    }
 </script>
 
 	</body>
