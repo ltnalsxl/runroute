@@ -604,6 +604,9 @@ input, select, textarea {
 		text-decoration: none;
 		border-bottom: none;
 		position: relative;
+		font-family: "Font Awesome 5 Free"; /* 올바른 폰트 지정 */
+		font-weight: 900; /* 아이콘이 굵게 표시되도록 설정 */
+
 	}
 
 		.icon:before {
@@ -1908,4 +1911,13 @@ input, select, textarea {
 		
 	}
 
-
+	@media (max-width: 736px) { /* 480px 이하일 때 적용 */
+		nav {
+			display: none; /* 모바일에서 nav 숨기기 */
+		}
+	}
+	@media (max-width: 480px) { /* 480px 이하일 때 적용 */
+		nav {
+			display: none; /* 모바일에서 nav 숨기기 */
+		}
+	}
