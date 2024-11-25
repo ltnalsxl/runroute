@@ -1921,3 +1921,46 @@ input, select, textarea {
 			display: none; /* 모바일에서 nav 숨기기 */
 		}
 	}
+
+	/* 상단바 고정 스타일 */
+/* 상단바 */
+#top-bar {
+    background-color: hsl(0, 0%, 0%); /* 배경색 */
+    color: #ffffff; /* 텍스트 색상 */
+    text-align: center;
+    padding: 10px 0; /* 위아래 여백 */
+    position: fixed; /* 고정 위치 */
+    top: 0; /* 페이지 상단 */
+    width: 100%; /* 화면 너비 */
+    z-index: 1000; /* 다른 요소 위로 */
+    box-shadow: 0 2px 4px #61dafb59; /* 그림자 효과 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 경계선 */
+}
+
+/* 상단바 텍스트 */
+#top-bar p {
+    margin: 0;
+    font-size: 0.9em;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 링크 스타일 */
+#top-bar a {
+    color: #61dafb; /* 강조된 링크 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-weight: bold; /* 굵은 텍스트 */
+    padding: 5px 10px; /* 클릭 영역 추가 */
+    border-radius: 5px; /* 둥근 모서리 */
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+/* 링크 호버 효과 */
+#top-bar a:hover {
+    background-color: rgba(97, 218, 251, 0.2); /* 연한 배경색 추가 */
+}
+
+@media (max-width: 480px) {
+    #top-bar p {
+        font-size: 1em;
+    }
+}
