@@ -1964,3 +1964,11 @@ input, select, textarea {
         font-size: 1em;
     }
 }
+/* 이메일 섹션 */
+#email-section {
+    margin: 0 auto; /* 자동 중앙 정렬 */
+    padding: 10px; /* 내부 여백 */
+    background-color: #121212; /* 배경색 */
+    color: #ffffff; /* 텍스트 색상 */
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
