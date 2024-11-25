@@ -1928,6 +1928,7 @@ input, select, textarea {
     background-color: hsl(0, 0%, 0%); /* 배경색 */
     color: #ffffff; /* 텍스트 색상 */
     text-align: center;
+	font-size: 1.2em;
     padding: 10px 0; /* 위아래 여백 */
     position: fixed; /* 고정 위치 */
     top: 0; /* 페이지 상단 */
