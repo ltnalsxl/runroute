@@ -78,7 +78,7 @@
                 height: auto; /* 원하는 높이로 설정 */
                 background: rgba(0, 0, 0, 0.85);
                 overflow: visible; /* 잘림 방지 */
-                position: relative; /* 부모 컨텍스트에 따라 위치 지정 */
+                position: center; /* 부모 컨텍스트에 따라 위치 지정 */
                 color: #4FC3F7; /* 부드러운 청록색 */
                 text-align: center;
                 padding: 1.5em 0;
@@ -86,6 +86,8 @@
                 
     }
     #wrapper {
+        height: auto; /* 원하는 높이로 설정 */
+
         display: flex; /* 자식 요소를 정렬하기 위한 flex 사용 */
         flex-direction: column; /* 자식 요소를 세로로 정렬 */
         align-items: stretch; /* 자식 요소가 부모 너비에 맞게 늘어나도록 */
@@ -425,11 +427,22 @@ button#submit:hover {
 </style>
 	</head>
     <body class="is-preload">
-        <div id="top-bar" >
-            <p style="margin: 0; font-size: 1.2em;">
-                서비스가 런칭되면 알려드릴게요! 
-                <a href="#email-section" style="color: #61dafb; text-decoration: underline;">알림 받기</a>
-            </p>
+        <div id="top-bar">
+            서비스가 런칭되면 알려드릴게요! <a href="#" id="notify-btn"><span>알림 받기</span></a>
+        </div>
+
+        <div id="popup-overlay" style="display: none;">
+            <div id="popup-content">
+                <h2>RunRoutes 런칭 알림을 신청하세요!</h2>
+                <p>지금 바로 이메일을 등록하고, 런칭 소식을 가장 먼저 확인해보세요.</p>
+                <form id="popup-form">
+                    <input id="popup-email" type="email" placeholder="알림을 받을 이메일 주소를 입력해 주세요" required />
+                    <textarea id="popup-feedback" placeholder="서비스 개선에 대한 아이디어를 남겨주세요"></textarea>
+                    <button type="submit" id="popup-submit">알림 받기!</button>
+                    <button type="submit" id="popup-close">닫기</button>
+
+                </form>
+            </div>
         </div>
         
         
@@ -795,7 +808,8 @@ button#submit:hover {
 </script>
 
 <!-- 이메일 남기기 -->
-<script>
+
+<!-- <script>
     // 이메일 제출 기능
     $("#submit").on("click", function () {
         const email = $("#submit-email").val();
@@ -831,6 +845,81 @@ button#submit:hover {
             });
     });
 </script>
+-->
+<script>
+    // 팝업 창의 이메일 제출 기능
+    $("#popup-submit").on("click", function (e) {
+        e.preventDefault(); // 기본 폼 제출 방지
+        const email = $("#popup-email").val();
+        const advice = $("#popup-feedback").val();
+
+        function validateEmail(email) {
+            const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            return re.test(email);
+        }
+
+        if (!email || !validateEmail(email)) {
+            alert("유효하지 않은 이메일입니다.");
+            return;
+        }
+
+        const finalData = JSON.stringify({
+            id: getUVfromCookie(),
+            email: email,
+            advice: advice,
+        });
+
+        axios
+            .get(`https://script.google.com/macros/s/AKfycbzVWzmV0KGjru18VK1LpyTyUq2698NGvtqbOCjQz3mQprdm9qow5a3K4m3dcFO-SWC5MA/exec?action=insert&table=registration&data=${finalData}`)
+            .then((response) => {
+                console.log("팝업 이메일 제출 성공:", response.data);
+                alert("서비스가 런칭되면 알려드릴게요. 같이 달려요! 🏃‍♂️🏃‍♀️");
+                $("#popup-email").val(""); // 팝업 이메일 입력 초기화
+                $("#popup-feedback").val(""); // 팝업 피드백 입력 초기화
+                document.getElementById('popup-overlay').style.display = 'none'; // 팝업 닫기
+            })
+            .catch((error) => {
+                console.error("팝업 이메일 제출 실패:", error);
+                alert("제출 중 오류가 발생했습니다.");
+            });
+    });
+
+    // 페이지 하단 폼의 이메일 제출 기능
+    $("#submit").on("click", function () {
+        const email = $("#submit-email").val();
+        const advice = $("#submit-advice").val();
+
+        function validateEmail(email) {
+            const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            return re.test(email);
+        }
+
+        if (!email || !validateEmail(email)) {
+            alert("유효하지 않은 이메일입니다.");
+            return;
+        }
+
+        const finalData = JSON.stringify({
+            id: getUVfromCookie(),
+            email: email,
+            advice: advice,
+        });
+
+        axios
+            .get(`https://script.google.com/macros/s/AKfycbzVWzmV0KGjru18VK1LpyTyUq2698NGvtqbOCjQz3mQprdm9qow5a3K4m3dcFO-SWC5MA/exec?action=insert&table=registration&data=${finalData}`)
+            .then((response) => {
+                console.log("페이지 하단 이메일 제출 성공:", response.data);
+                alert("서비스가 런칭되면 알려드릴게요. 같이 달려요! 🏃‍♂️🏃‍♀️");
+                $("#submit-email").val(""); // 페이지 하단 이메일 입력 초기화
+                $("#submit-advice").val(""); // 페이지 하단 피드백 입력 초기화
+            })
+            .catch((error) => {
+                console.error("페이지 하단 이메일 제출 실패:", error);
+                alert("제출 중 오류가 발생했습니다.");
+            });
+    });
+</script>
+
 
 <script>
     function toggleNavbar() {
@@ -839,22 +928,56 @@ button#submit:hover {
     }
 </script>
 <script>
+// "알림 받기" 버튼 클릭 시 팝업 열기
 document.querySelector('#top-bar a').addEventListener('click', function (e) {
-    e.preventDefault(); // 기본 클릭 동작 방지
+    e.preventDefault(); // 기본 동작 방지
+    document.getElementById('popup-overlay').style.display = 'flex'; // 팝업 표시
+});
 
-    const target = document.querySelector('#email-section');
-    if (target) {
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center', // 섹션을 화면 중앙에 배치
-        });
-    } else {
-        console.error('Target element not found!');
+// 닫기 버튼 클릭 시 팝업 닫기
+document.getElementById('popup-close').addEventListener('click', function () {
+    document.getElementById('popup-overlay').style.display = 'none'; // 팝업 숨김
+});
+
+// 닫기 버튼 클릭 시 팝업 숨기기
+document.getElementById('popup-close').addEventListener('click', function () {
+    document.getElementById('popup-overlay').style.display = 'none'; // 팝업 숨김
+});
+
+// 팝업 외부 클릭 시 팝업 닫기
+document.getElementById('popup-overlay').addEventListener('click', function (e) {
+    if (e.target === this) {
+        this.style.display = 'none'; // 팝업 숨김
     }
 });
 
 
+// 입력 값 동기화
+function syncInputs(source, target) {
+    document.querySelector(source).addEventListener('input', function () {
+        document.querySelector(target).value = this.value;
+    });
+}
+
+// 이메일과 피드백 동기화
+syncInputs('#popup-email', '#email-text');
+syncInputs('#page-email', '#email-text');
+syncInputs('#popup-feedback', '#feedback-text');
+syncInputs('#page-feedback', '#feedback-text');
+
+// 폼 제출 핸들러 (예시)
+document.querySelector('#popup-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('팝업에서 알림 신청 완료!');
+});
+
+document.querySelector('#page-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('페이지 하단에서 알림 신청 완료!');
+});
+
 </script>
+
 	</body>
 
 </html>	
