@@ -1755,16 +1755,34 @@ input, select, textarea {
     color: #29B6F6; /* 링크 호버 시 더 밝은 색상 */
 }
 
+.description p {
+    font-size: 1.1em; /* 크기 키움 */
+    line-height: 1.4; /* 줄 간격 */
+    text-align: center;
+    color: #ffffffd7;
+}
+.description p span {
+    font-weight: bold;
+    color: #61dafb; /* 강조 색상 */
+}
 
 .section-title {
-    background: rgba(0, 0, 0, 0.4); /* 어두운 배경색과 투명도 */
+	background: linear-gradient(to right, #4A90E2, #61dafb);
     color: #4FC3F7; /* 텍스트 색상 */
     border-radius: 8px; /* 모서리 둥글게 */
     text-align: center; /* 텍스트 중앙 정렬 */
     font-size: 1.5rem; /* 폰트 크기 */
     font-weight: bold; /* 텍스트 굵기 */
     display: inline-block; /* 텍스트 주변에만 배경색 */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
+
+.header-description-eng {
+    letter-spacing: 0.04em;
+}
+
+
 
 .icon {
     all: unset;
@@ -1777,6 +1795,11 @@ input, select, textarea {
     font-family: 'Font Awesome 5 Free';
     src: url('/path-to-font/fontawesome-webfont.woff2') format('woff2');
     font-display: swap;
+}
+
+
+.header-title {
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 480px) { /* 모바일 화면 */
@@ -1868,6 +1891,8 @@ input, select, textarea {
 	
 		#header .header-title {
 			font-size: 2rem;  /* 헤더 타이틀 크기 줄이기 */
+			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
 		}
 	
 		#header .header-description {
@@ -1881,3 +1906,5 @@ input, select, textarea {
 
 		
 	}
+
+
