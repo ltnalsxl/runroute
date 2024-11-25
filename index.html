@@ -425,9 +425,10 @@ button#submit:hover {
 </style>
 	</head>
     <body class="is-preload">
-        <div id="top-bar">
-            <p style="margin: 0; font-size: 1.1em;">
-                서비스가 런칭되면 알려드릴게요! <a href="#email-section" style="color: #61dafb; text-decoration: underline; cursor: pointer;">알림 받기</a>
+        <div id="top-bar" >
+            <p style="margin: 0; font-size: 1.2em;">
+                서비스가 런칭되면 알려드릴게요! 
+                <a href="#email-section" style="color: #61dafb; text-decoration: underline;">알림 받기</a>
             </p>
         </div>
         
@@ -511,7 +512,7 @@ button#submit:hover {
 <!-- 이메일 및 피드백 섹션 -->
     <div class="content">
         <center>
-        <div id="email-section" style="margin-top: 10px; padding: 10px; text-align: center;">
+        <div id="email-section" style="margin-top: 20px; padding: 10px; text-align: center;">
             <h3 style="color: #ffffff;">RunRoutes 런칭 알림을 신청하세요!</h3>
             <p id="email-text" style="font-size: 1.1rem; font-weight: 400; color: #E0F7FA; line-height: 1.5; text-align: center; font-family: 'Inter', sans-serif; letter-spacing: normal; ">
                 지금 바로 이메일을 등록하고, 런칭 소식을 가장 먼저 확인해보세요. </p>
@@ -838,11 +839,21 @@ button#submit:hover {
     }
 </script>
 <script>
-    document.querySelector('#top-bar a').addEventListener('click', function (e) {
+document.querySelector('#top-bar a').addEventListener('click', function (e) {
     e.preventDefault(); // 기본 클릭 동작 방지
-    const target = document.querySelector('#email-section'); // 이메일 섹션으로 이동
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' }); // 부드러운 스크롤 효과
+
+    const target = document.querySelector('#email-section');
+    if (target) {
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center', // 섹션을 화면 중앙에 배치
+        });
+    } else {
+        console.error('Target element not found!');
+    }
 });
+
+
 </script>
 	</body>
 
